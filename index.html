@@ -1,4 +1,118 @@
+ <style>
+	body{
+		background-image:url('Chicken1.jpg');
+		background-size:cover;
+		background-attachment:fixed;
+	}
+	.btn-login{
+		background-color:rgba(2, 178, 222, 1);
+		color:white;
+		border:0;
+		border-top-right-radius:4px;
+		border-bottom-right-radius:4px;
+		padding:8.5px 13px 9.5px 11px;
+		font-size:17px;
+	}
+	.btn-login:hover{
+		background-color:rgba(140, 140, 140, 1);
+		color:rgba(77, 219, 255, 1);
+	}
+	.sign-up{
+		background-color: rgba(135, 135, 135, 0.40);
+		box-shadow:0px 0px 1px 1px rgba(0, 0, 0, 0.2);
+		width:350px; 
+		margin-top:120px;
+		padding:15px 15px 15px ; 
+	}
+	.btn-sign-up{
+		font-family: calibri;
+		color: white;
+		background-color:rgba(87, 87, 87, 1);
+		width: 200px;
+		padding:60px;
+		margin-top:15px;
+		letter-spacing: 3px;
+	}
+	.sign-up p{
+		background-color:rgba(9, 134, 128, 1);
+		color:rgba(235, 235, 235, 1);
+		padding:3px 5px; 
+	}
+	.navbar-style{
+		background-color:rgba(9, 134, 128, 1);
+		
+	}
+	
+</style>
 <html>
-<head>Pesan Ayam Kuy</head>
-<body></body>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		if (typeof document.onselectstart!="undefined") {
+			document.onselectstart=new Function ("return false");
+		}
+		else{
+			document.onmousedown=new Function ("return false");
+			document.onmouseup=new Function ("return true");
+		}
+	</script>
+	<title>Welcome Page</title>
+</head>
+<body>
+<nav class="navbar navbar-style" style="border-radius:0;">
+	<div class="container-fluid">
+	<ul class="nav navbar-nav">
+			<li><a href="#news">News</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#contacs">Contacts</a></li>
+			<li><a href="#sign-in">Sign In</a></li>
+			<li><a href="#sign-up">Sign Up</a></li>
+		</ul>
+		</div>
+</nav>
+	<div class="row" style=" margin:0;margin-top: -20px;" >
+		<form class="pull-right" style="margin-top:10px; width:250px; margin-right:18px;">
+			<div class="input-group" >
+				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+				<input style="height:35px;" id="email" type="text" class="form-control" name="email" placeholder="Email">
+			</div>
+			<div class="input-group" style="margin-top:4px;">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+				<input style="height:35px; width:170px;" id="password" type="password" class="form-control" name="password" placeholder="Password">
+				<button type="submit" class="btn-login"><i class="glyphicon glyphicon-log-in"></i></button>
+			</div>
+			<div class="checkbox" style="margin-top:0.5px;">
+				<label><input type="checkbox">Remember me</label>
+			</div>
+		</form>
+	</div>
+	<div class="row bd-top" style="margin: 0px 18px; padding:0;">
+		<form class="pull-right sign-up">
+			<p class="text-center" style="font-size:23px; border-radius:4px">Sign Up</p><br>
+			<div class="input-group" style="margin-top:-8px;">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+				<input style="height:38px;" id="username" type="text" class="form-control" name="username" placeholder="Username">
+			</div>
+			<div class="input-group" style="margin-top:15px;" >
+				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+				<input style="height:38px;" id="email" type="text" class="form-control" name="email" placeholder="Email">
+			</div>
+			<div class="input-group" style="margin-top:15px;">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+				<input style="height:38px;" id="password" type="password" class="form-control" name="password" placeholder="Password">
+			</div>
+			<div class="input-group" style="margin-top:15px;">
+				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+				<input style="height:38px;" id="tgl-lahir" type="date" class="form-control" name="Birthday">
+			</div>
+			
+			<div class="text-center"><button type="submit" class="btn btn-sign-up center-block" style="font-size:18px;">Submit</button></div>
+		</form>
+	</div>
+</body>
 </html>
