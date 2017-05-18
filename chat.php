@@ -8,6 +8,24 @@
     background-size: cover;
   }
 
+  .nav-bar{
+		background-color:rgba(9, 134, 127, 0.75);
+	}
+
+  ul li{
+		text-align: center;
+	}
+	ul li a {
+		color: white;
+		letter-spacing: 3px;
+		font-family: "century gothic";
+		font-weight: bold;
+		font-size: 15px;
+	}
+	ul li a:hover{
+		color: rgba(9, 134, 127, 1);
+	}
+
   .me{
     background-color:#74a8fc;
     border: 1px solid;
@@ -46,7 +64,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Personal Chat</title>
+    <?php
+      echo '<title>'.$_GET["teman"].'</title>';
+    ?>
 
     <!-- Bootstrap -->
     <link href="bootstrap.min.css" rel="stylesheet">
@@ -59,16 +79,30 @@
     <![endif]-->
   </head>
   <body>
+    <nav class="navbar nav-bar" style="border-radius:0;">
+  		<div class="container-fluid">
+  			<ul class="nav navbar-nav">
+  				<li><a href="#home">Home</a></li>
+  				<li><a href="#about">About</a></li>
+  				<li><a href="#contacs">Contacts</a></li>
+  			</ul>
+  			<ul class="nav navbar-nav navbar-right">
+          <?php
+            echo '<li><a href="#friend">'.$_COOKIE["user"].'</a></li>';
+          ?>
+  			</ul>
+  		</div>
+  	</nav>
     <br>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12" >
         <?php
           require_once "koneksi.php";
 
-          $result=$conn->query("select * from chat where username='".$_COOKIE['user']."' and friend='".$_GET['teman']."' or username='".$_GET['teman']."' and friend='".$_COOKIE['user']."' order by waktu");
+          $result=$conn->query("select * from chat where pengirim='".$_COOKIE['user']."' and penerima='".$_GET['teman']."' or pengirim='".$_GET['teman']."' and penerima='".$_COOKIE['user']."' order by tgl_waktu");
           if($result->num_rows>0){
             while($pesan=$result->fetch_assoc()){
-              if($pesan["username"]!=$_COOKIE["user"]){
+              if($pesan["pengirim"]!=$_COOKIE["user"]){
                 echo '
                     <div class="row" style="width:100%;padding-right:0">
                       <div class="col-xs-2 col-sm-1 col-md-1" style="padding-right:0;padding-left:25px;width:75px;">
@@ -76,7 +110,7 @@
                       </div>
                       <div class="col-xs-10 col-sm-11 col-md-11" style="padding-left:0;width:600px;">
                         <div class="friend">
-                          '.$pesan["pesan"].'
+                          '.$pesan["isi_chat"].'
                         </div>
                       </div>
                     </div><br>';
@@ -89,7 +123,7 @@
                       </div>
                       <div class="col-xs-12 col-sm-11 col-md-11 pull-right" style="width:600px;padding:0">
                         <div class="me" class="text-align:right;" style="margin-right:0;">
-                          '.$pesan["pesan"].'
+                          '.$pesan["isi_chat"].'
                         </div>
                       </div>
                     </div><br>';
