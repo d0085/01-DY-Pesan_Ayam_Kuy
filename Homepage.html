@@ -200,6 +200,10 @@
 				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 				<input style="height:38px;" id="tgl-lahir" type="date" class="form-control" name="Birthday">
 			</div>
+			<div class="input-group" style="margin-top:15px;">
+				<span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
+				<input style="height:38px;" id="alamat" type="text" class="form-control" name="Address" placeholder="Address">
+			</div>
 			
 			<div class="text-center"><button type="submit" class="btn btn-submit center-block" style="font-size:18px;">Submit</button></div>
 		</form>
@@ -212,7 +216,7 @@
                     <img class="img-responsive" src="images/ayam_kampung.jpg" alt="">
                 </a>
                 <h3>
-                    <a href="#">Ayam Kampung</a>
+                    <a href="next.html">Ayam Kampung</a>
                 </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
@@ -221,43 +225,43 @@
                     <img class="img-responsive" src="images/ayam_kampus.jpg" alt="">
                 </a>
                 <h3>
-                    <a href="#">Ayam Kampus</a>
+                    <a href="next.html">Ayam Kampus</a>
                 </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
             <div class="col-md-3 portfolio-item">
-                <a href="#">
+                <a href="next.html">
                     <img class="img-responsive" src="images/ayam_wuruk.jpg" alt="">
                 </a>
                 <h3>
-                    <a href="#">Ayam Kalkun</a>
+                    <a href="next.html">Ayam Kalkun</a>
                 </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
 			<div class="col-md-3 portfolio-item">
-                <a href="#">
+                <a href="next.html">
                     <img class="img-responsive" src="images/ayam_potong.jpg" alt="">
                 </a>
                 <h3>
-                    <a href="#">Ayam Potong</a>
+                    <a href="next.html">Ayam Potong</a>
                 </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
             <div class="col-md-3 portfolio-item">
-                <a href="#">
+                <a href="next.html">
                     <img class="img-responsive" src="images/ayam_kantong.jpg" alt="">
                 </a>
                 <h3>
-                    <a href="#">Ayam Kantong</a>
+                    <a href="next.html">Ayam Kantong</a>
                 </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
             <div class="col-md-3 portfolio-item">
-                <a href="#">
+                <a href="next.html">
                     <img class="img-responsive" src="images/ayam_kuning.jpg" alt="">
                 </a>
                 <h3>
-                    <a href="#">Ayam Kuning</a>
+                    <a href="next.html">Ayam Kuning</a>
                 </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
