@@ -1,20 +1,18 @@
 <?php
+	session_start();
 	require_once "koneksi.php";
-
-	$username = $_GET['username'];
 	
-	//echo $nim;
-	
-	$sql = "SELECT * FROM stok where username = '$username'";
-	$result = $conn -> query ($sql);
-	$row = $result -> fetch_assoc();
+	$sqli = "SELECT * FROM akun where username='".$_SESSION['USERNAME']."'";
+	$result1 = $conn -> query($sqli);
+	$jumlah = $result1 -> num_rows;
+	$row = $result1 -> fetch_assoc();
 	
 	echo'
-	<form action="proses_edit.php?username='.$row["username"].'" method="post">
+	<form action="proses_edit.php" method="post">
 			<fieldset>
 				<legend>Tambah Stok</legend><br>
 				Nama:<br>
-				<input type="text" value="'.$row['nama_stok'].'" name="ns" disabled/><br>
+				<input type="text" value="'.$row['username'].'" name="username" disabled/><br>
 				Jumlah:<br>
 				<input type="number" value="" name="js" required/><br>
 					<a href="cekstok.php"><button>Kembali</button></a>

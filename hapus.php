@@ -2,8 +2,8 @@
 
 	include "koneksi.php";
 	
-	$dlt = $_GET['user_penjual'];
-	$delete = "DELETE FROM permintaan WHERE user_penjual='$dlt'";
+	$dlt = $_GET['req_id'];
+	$delete = "DELETE FROM transaksi WHERE req_id='$dlt'";
 	$hasil = $conn -> query($delete);
 	
 	if($hasil)
