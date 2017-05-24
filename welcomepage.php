@@ -138,7 +138,7 @@
 		<nav class="navbar nav-bar" style="border-radius:0;">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav">
-					<li><a href="homepage.html">Home</a></li>
+					<li><a href="homepage.php">Home</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="#contacs">Contacts</a></li>	
 				</ul>
