@@ -15,7 +15,7 @@
 	$hasil2 = mysqli_query($conn, $query2);
 
 	if($hasil){
-		echo '<script>alert("Permintaan stock sudah di proses menuggu tanggapan dari pemasok");location.replace("stockPenjual.php");</script>';		
+		echo '<script>alert("Permintaan stock sedang diproses\nMenuggu tanggapan dari pemasok");location.replace("stockPenjual.php");</script>';		
 	}
 	else {
 		echo '<script>alert("Permintaan stock gagal diproses");location.replace("stockPenjual.php");</script>';

@@ -12,8 +12,6 @@
 			<input type="password" name="password" placeholder="PASSWORD" required="required"/>
 			<br><br>
 			<input type="submit" value="SUBMIT"/>
-			<br><br>
-			<a href="daftar.php">Klik disini untuk mendaftar</a>
 		</form>
 		</center>	
  	</body>

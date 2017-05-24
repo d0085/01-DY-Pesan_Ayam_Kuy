@@ -6,7 +6,6 @@
 		header('location:Login Seller.php');	
 	}
 	$username = $_SESSION['USERNAME'];
-	
 ?>
 <html>
 <head>
@@ -14,8 +13,8 @@
 	<link rel="stylesheet" href="styleStock.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script type="text/javascript" src="jquery-2.1.4.min.js"></script> 
-	
-	<!--  -->
+
+	<!-- script hitung harga total -->
 	<script type="text/javascript">
 		function start(){
 			interval = setInterval("hitung()",1);
@@ -30,7 +29,6 @@
 			clearInterval(interval);
 		}
 	</script>
-
 </head>
 
 <body>	
@@ -92,6 +90,22 @@
 				<span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
 				<input style="height:35px;" name='total' type="text" class="form-control" placeholder="Total Harga"  readonly>
 			</div>
+		</div>
+
+		<!-- pilih pemasok -->
+		<div class="input">	
+		<select name="pilihPemasok" id="pilihPemasok" class="form-control" required>
+				<option style="height:35px;" selected="selected" readonly> Pilih Pemasok</option>
+				<?php
+					$sql="SELECT * FROM akun WHERE peran='1' order by username asc";
+					$pemasok = mysqli_query($conn, $sql);
+					while($hasil = mysqli_fetch_assoc($pemasok)){
+				?>
+				<option value="<?php echo $hasil['username']; ?>"><?php echo $hasil['username']; ?></option>
+				<?php
+					}
+				?>
+		</select>
 		</div>
 
 		<input class="tombol" type='submit' value="Submit">
