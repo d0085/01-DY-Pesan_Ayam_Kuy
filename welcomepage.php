@@ -124,9 +124,14 @@
 			$(target).slideToggle('slow');
 			return false;
 		});
-		$('.navbar-nav').click(function(){
+		$('.navbar-nav').blur(function(){
 			var target = $(this).attr('href');
 			$('#form form').find('.slideDown').slideUp();
+			});
+			return false;
+		$('.navbar-nav').blur(function(){
+			var target = $(this).attr('href');
+			$('#form form').slideUp();
 			});
 			return false;
 	});
@@ -153,7 +158,7 @@
 				<p class="text-center" style="font-size:23px; border-radius:4px">Login</p>
 				<div class="input-group" >
 					<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-					<input style="height:35px;" id="email" type="text" class="form-control" name="email" placeholder="Email">
+					<input style="height:35px;" id="username" type="text" class="form-control" name="username" placeholder="Username">
 				</div>
 				<div class="input-group psw-log-in" style="margin-top:15px;">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -188,9 +193,16 @@
 				</div>
 				<div class="input-group" style="margin-top:15px;">
 					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-					<input style="height:38px;" id="tgl-lahir" type="date" class="form-control" name="Birthday">
+					<input style="height:38px;" id="tgl-lahir" type="date" class="form-control" name="birthday">
 				</div>
-				
+				<div class="form-group" style="margin-top:15px;">
+					<select class="form-control"style="height:38px; padding: 0 12px 0 12px;" id="sel1">
+						<option>Sign up as. . .</option>
+						<option value="1">Pemasok</option>
+						<option value="2">Penjual</option>
+						<option value="3">Pembeli</option>
+					</select>
+				</div>
 				<div class="text-center"><button type="submit" class="btn btn-submit center-block" style="font-size:18px;">Submit</button></div>
 			</form>
 		</div>
