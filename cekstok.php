@@ -99,9 +99,19 @@
 		z-index: 100;
 		width:100%;
 	}
-	.row h3{
+	.row h2{
 		color: white;
 	}
+	.row table{
+		color: black;
+	}
+	.row h4{
+		color: white;
+	}
+	.bawah h3{
+		color: white;
+	}
+		
 	
 </style>
 <html>
@@ -135,7 +145,7 @@
 			return false;
 	});
 	</script>
-	<title>Welcome Page</title>
+	<title>Pemasok | Stok</title>
 </head>
 <body>
 	<div style="background-color:rgba(34, 32, 80, 0.07);height:100%;">
@@ -210,13 +220,13 @@
 	echo"
 	
 		<div class='row' style=' margin:0;margin-top: -20px;' >
-			<form class='pull-right login-form' style='margin-top:150px; width:330px; margin-right:500px;'>
+			<form class='pull-right login-form' style='margin-top:150px; width:400px; margin-right:475px;'>
 					
 					<center>
-						<h3> Jumlah Stok yang Tersedia : </h3>
+						<h2> Jumlah Stok yang Tersedia : </h2>
 					</center>
 		
-		";
+	";
 					
 					if($jumlah>0)
 					{
@@ -225,35 +235,39 @@
 						<br><br>
 						<table style="border : 2px solid">
 							<tr>
-								<th style="border : 1px solid">Username</th>
-								<th style="border : 1px solid">Jumlah</th>
-								<th style="border : 1px solid">Option</th>
+								<th style="border : 1px solid ; font-size:18px ; text-align:center">Username</th>
+								<th style="border : 1px solid ; font-size:18px ; text-align:center">Jumlah</th>
+								<th style="border : 1px solid ; font-size:18px ; text-align:center">Option</th>
 							</tr>
 							';
 							while($row = $result1 -> fetch_assoc())
 							{
 								echo"
 							<tr>
-								<td style='border : 1px solid'>".$row['username']."</td>
-								<td style='border : 1px solid'>".$row['jml_stock']."</td>
-								<td style='border : 1px solid'> <a href='edit.php?username=".$_SESSION['USERNAME']."'><button>Tambah</button></a>
+								<td style='border : 1px solid ; font-size:17px ; text-align:center'>".$row['username']."</td>
+								<td style='border : 1px solid ; font-size:17px ; text-align:center'>".$row['jml_stock']."</td>
+								<td style='border : 1px solid ; font-size:17px ; text-align:center'> <a href='edit.php?username=".$_SESSION['USERNAME']."'><h4>Tambah</h4></a></td>
 							</tr>
-	</center>
+					</center>
 
-			</div>
+		</div>
 
-	";
-		}
-		echo '</table>';
+								";
+							}
+					echo '</table>';
 
 
-		}
+					}
 ?>
 
 	<br><br>
-	<a href="user_home.php">Kembali</a><br>
-	<a href="logout.php">Keluar</a>
-
+	<div class="bawah">
+		<table>
+			<td style="padding-right:190px"><a href="user_home.php"><h3>Kembali</h3></a></td>
+			<td><a href="logout.php"><h3>Keluar</h3></a><td>
+		</table>
+	</div>
+	
 	</div>
   </div>
 </body>

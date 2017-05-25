@@ -135,7 +135,7 @@
 			return false;
 	});
 	</script>
-	<title>Welcome Page</title>
+	<title>P.A.K | Pemasok</title>
 </head>
 <body>
 	<div style="background-color:rgba(34, 32, 80, 0.07);height:100%;">
@@ -209,12 +209,13 @@
 		
 				echo"
 	
-					<div class='row' style=' margin:0;margin-top: -20px;' >
+					<div class='row' style='margin:0 ; margin-top:60px ; margin-right:20px' >
 						<form class='pull-right login-form' style='margin-top:150px; width:330px; margin-right:500px;'>
 							<a href='cekstok.php'><h3 align='center'>Cek Stok</h3></a>
-							<a href='cekpermintaan.php'><h3 align='center'>Cek Permintaan Pasokan</h3></a><br><br><br>
-							<a href='logout.php'>Log Out</a>
+							<a href='cekpermintaan.php'><h3 align='center'>Cek Permintaan Pasokan</h3></a>
 					</div>
+				
+				<a href='logout.php'><h4 align='left'>Log Out</h4></a>
 
 				";
 			?>	

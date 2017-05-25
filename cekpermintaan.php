@@ -99,7 +99,16 @@
 		z-index: 100;
 		width:100%;
 	}
-	.row h3{
+	.row h2{
+		color: white;
+	}
+	.row table{
+		color: black;
+	}
+	.row h4{
+		color: white;
+	}
+	.bawah h3{
 		color: white;
 	}
 
@@ -136,7 +145,7 @@
 			return false;
 	});
 	</script>
-	<title>Welcome Page</title>
+	<title>Pemasok | Permintaan Pasokan</title>
 </head>
 <body>
 	<div style="background-color:rgba(34, 32, 80, 0.07);height:100%;">
@@ -210,11 +219,11 @@
 	
 	echo"
 
-			<div class='row' style=' margin:0;margin-top: -35px;' >
+			<div class='row' style='margin:0 ; margin-top:-30px' >
 			<form class='pull-right login-form' style='margin-top:150px; width:550px; margin-right:400px;'>
 					
 					<center>
-						<h3> Jumlah Pasokan yang Menunggu : $jumlah</h3>
+						<h2> Jumlah Pasokan yang Menunggu : $jumlah</h2>
 					</center>
 		";
 	
@@ -226,20 +235,20 @@
 	<br><br>
 	<table style="border : 2px solid">
 		<tr>
-			<th style="border : 1px solid">Username</th>
-			<th style="border : 1px solid">Jumlah Permintaan</th>
-			<th style="border : 1px solid">Waktu</th>
-			<th style="border : 1px solid">Status</th>
+			<th style="border : 1px solid ; font-size:18px ; text-align:center">Username</th>
+			<th style="border : 1px solid ; font-size:18px ; text-align:center">Jumlah Permintaan</th>
+			<th style="border : 1px solid ; font-size:18px ; text-align:center">Waktu</th>
+			<th style="border : 1px solid ; font-size:18px ; text-align:center">Status</th>
 		</tr>
 		';
 		while($row = $result1 -> fetch_assoc())
 		{
 			echo'
 		<tr>
-			<td style="border : 1px solid">'.$row["req_id"].'</td>
-			<td style="border : 1px solid">'.$row["jml_permintaan"].'</td>
-			<td style="border : 1px solid">'.$row["tgl_waktu"].'</td>
-			<td style="border : 1px solid"> <a href="hapus.php?req_id='.$row["req_id"].'"><button>Selesai</button></a>
+			<td style="border : 1px solid ; font-size:17px ; text-align:center">'.$row["req_id"].'</td>
+			<td style="border : 1px solid ; font-size:17px ; text-align:center">'.$row["jml_permintaan"].'</td>
+			<td style="border : 1px solid ; font-size:17px ; text-align:center">'.$row["tgl_waktu"].'</td>
+			<td style="border : 1px solid ; font-size:17px ; text-align:center"> <a href="hapus.php?req_id='.$row["req_id"].'"><h4>Selesai</h4></a>
 		</tr>
 	</center>	
 		';
@@ -249,8 +258,12 @@
 ?>
 
 	<br><br>
-	<a href="user_home.php">Kembali</a><br>
-	<a href="logout.php">Keluar</a>
+	<div class="bawah">
+		<table>
+			<td style="padding-right:370px"><a href="user_home.php"><h3>Kembali</h3></a></td>
+			<td><a href="logout.php"><h3>Keluar</h3></a><td>
+		</table>
+	</div>
 
 	</div>
   </div>
