@@ -3,7 +3,7 @@
 	session_start();
 
 	if(!isset($_SESSION['USERNAME'])){
-		header('location:Login Seller.php');	
+		header('location:Login.php');	
 	}
 	$username = $_SESSION['USERNAME'];
 ?>
@@ -88,7 +88,7 @@
 		<div class="input">
   			<div class="input-group" >
 				<span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
-				<input style="height:35px;" name='total' type="text" class="form-control" placeholder="Total Harga"  readonly>
+				<input style="height:35px;" name='total'  id='total' type="text" class="form-control" placeholder="Total Harga"  readonly>
 			</div>
 		</div>
 
@@ -97,11 +97,11 @@
 		<select name="pilihPemasok" id="pilihPemasok" class="form-control" required>
 				<option style="height:35px;" selected="selected" readonly> Pilih Pemasok</option>
 				<?php
-					$sql="SELECT * FROM akun WHERE peran='1' order by username asc";
+					$sql="SELECT * FROM akun WHERE peran='1' order by nama asc";
 					$pemasok = mysqli_query($conn, $sql);
 					while($hasil = mysqli_fetch_assoc($pemasok)){
 				?>
-				<option value="<?php echo $hasil['username']; ?>"><?php echo $hasil['username']; ?></option>
+				<option value="<?php echo $hasil['username']; ?>"><?php echo $hasil['nama']; ?></option>
 				<?php
 					}
 				?>
