@@ -114,18 +114,42 @@
 	.row h3{
 		color:white;
 	}
-	.row h2{
-		color: white;
+	.button {
+	  display: inline-block;
+	  border-radius: 8px;
+	  background-color: rgb(9, 134, 127);
+	  border: none;
+	  color: #FFFFFF;
+	  text-align: center;
+	  font-size: 28px;
+	  padding: 20px;
+	  width: 500px;
+	  transition: all 0.5s;
+	  cursor: pointer;
+	  margin: 5px;
+	  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 	}
-	.row table{
-		color: black;
+	.button span {
+	  cursor: pointer;
+	  display: inline-block;
+	  position: relative;
+	  transition: 0.5s;
+	 }
+	.button span:after {
+	  content: '\00bb';
+	  position: absolute;
+	  opacity: 0;
+	  top: 0;
+	  right: -20px;
+	  transition: 0.5s;
 	}
-	.row h4{
-		color: white;
+	.button:hover span {
+	  padding-right: 25px;
 	}
-	.bawah h3{
-		color: white;
-	}	
+	.button:hover span:after {
+	  opacity: 1;
+	  right: 0;
+	}
 </style>
 
 <html>
@@ -138,7 +162,7 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="/js/bootstrap.min.js"></script>
 	
-	<title>Pemasok | Cek Stok</title>
+	<title>P.A.K | Pemasok</title>
 </head>
 <body>
     <nav class="navbar nav-bar" style="border-radius:0;margin-bottom:0">
@@ -225,64 +249,22 @@
 		</form>
 	</div>
 			
-<?php
+			<?php
+				require_once "koneksi.php";
 
-	require_once "koneksi.php";
-	
-	$sqli = "SELECT * FROM akun where username='".$_SESSION['USERNAME']."'";
-	$result1 = $conn -> query($sqli);
-	$jumlah = $result1 -> num_rows;
-	
-	echo"
-	
-		<div class='row' style='margin:0;margin-top: -20px;' >
-			<form class='pull-right login-form' style='margin-top:150px; width:400px; margin-right:50px;'>
-					
-					<center>
-						<h2> Jumlah Stok yang Tersedia : </h2>
-					</center>
+				$sqli = "SELECT * FROM akun";
+				$result1 = $conn -> query($sqli);
+				$jumlah = $result1 -> num_rows;
+				$row = $result1 -> fetch_assoc();
 		
-	";
-					
-					if($jumlah>0)
-					{
-					echo'
-					<center>
-						<br><br>
-						<table style="border : 2px solid">
-							<tr>
-								<th style="border : 1px solid ; font-size:18px ; text-align:center">Username</th>
-								<th style="border : 1px solid ; font-size:18px ; text-align:center">Jumlah</th>
-								<th style="border : 1px solid ; font-size:18px ; text-align:center">Option</th>
-							</tr>
-							';
-							while($row = $result1 -> fetch_assoc())
-							{
-								echo"
-							<tr>
-								<td style='border : 1px solid ; font-size:17px ; text-align:center'>".$row['username']."</td>
-								<td style='border : 1px solid ; font-size:17px ; text-align:center'>".$row['jml_stock']."</td>
-								<td style='border : 1px solid ; font-size:17px ; text-align:center'> <a href='edit.php?username=".$_SESSION['USERNAME']."'><h4>Tambah</h4></a></td>
-							</tr>
-					</center>
-
-		</div>
-
-								";
-							}
-					echo '</table>';
-
-
-					}
-?>
-
-	<br><br>
-	<div class="bawah">
-		<table>
-			<td style="padding-right:280px"><a href="homepage_pemasok.php"><h3>Kembali</h3></a></td>
-		</table>
-	</div>
-	
+				echo"
+						<center>
+							<br><br><br><br><br><br><br><br>
+							<a href='cekstok.php'><button class='button' style='vertical-align:middle'><span>Cek Stok</span></button></a><br><br>
+							<a href='cekpermintaan.php'><button class='button' style='vertical-align:middle'><span>Cek Permintaan Pasokan</span></button></a>
+						</center>
+				";
+			?>	
 	</div>
   </div>
 </body>
