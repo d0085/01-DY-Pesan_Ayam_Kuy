@@ -1,9 +1,11 @@
 <?php
+  session_start();
+
   require_once "koneksi.php";
 
   $pesan=$_POST["pesan"];
   $teman=$_POST["teman"];
-  $username=$_COOKIE["user"];
+  $username=$_SESSION["USERNAME"];
 
   // echo $teman;
 
