@@ -236,7 +236,7 @@
 	echo"
 
 	<div class='row' style='margin:0 ; margin-top:-20px' >
-			<form class='pull-right login-form' style='margin-top:150px; width:550px; margin-right:400px;'>
+			<form class='pull-right login-form' style='margin-top:150px; width:550px; margin-right:0px;'>
 					
 					<center>
 						<h2> Jumlah Pasokan yang Menunggu : $jumlah</h2>
@@ -277,7 +277,7 @@
 	<br><br>
 	<div class="bawah">
 		<table>
-			<td style="padding-right:370px"><a href="homepage_pemasok.php"><h3>Kembali</h3></a></td>
+			<center><td style="text-align:center !important;"><center><a href="homepage_pemasok.php" style="text-decoration:none;"><h3 style="background:rgba(9, 134, 127, 1) !important;padding:7px;border-radius:5px;">Kembali</h3></a></center></td></center>
 		</table>
 	</div>
 

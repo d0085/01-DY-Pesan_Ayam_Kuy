@@ -236,7 +236,7 @@
 	echo"
 	
 		<div class='row' style='margin:0;margin-top: -20px;' >
-			<form class='pull-right login-form' style='margin-top:150px; width:400px; margin-right:50px;'>
+			<form class='pull-right login-form' style='margin-top:150px; width:400px; margin-right:150px;'>
 					
 					<center>
 						<h2> Jumlah Stok yang Tersedia : </h2>
