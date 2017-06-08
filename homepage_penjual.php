@@ -49,8 +49,24 @@
 		color:rgba(9, 134, 127, 1);
 		text-decoration:none;
 	}
-	nav div a:active{
-		color:red;
+	nav div a.active{
+		background-color:white;
+		color:rgba(9, 134, 127, 1);
+		text-decoration:none;
+	}
+	.chat{
+		padding:15.3px ;
+		text-align:justify;
+		color: white;
+		letter-spacing: 3px;
+		font-size:16px;
+		font-family: "century gothic";
+		font-weight:bold;
+	}
+	.chat:hover{
+		background-color:white;
+		color:rgba(9, 134, 127, 1);
+		text-decoration:none;
 	}
 	
 </style>
@@ -58,6 +74,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
@@ -81,6 +98,7 @@
 				<a class="pull-right pr" href="stockPenjual.php"><span class="glyphicon glyphicon-stats"></span> Stock</a></li>
 				<a class="active pull-right pr" href="homepage_penjual.php"><span class="glyphicon glyphicon-th-list"></span> Tabel Pemesan</a></span>
 			  	<a class="brand" href="index.html"><span><img style="padding-top:5px;" src="images/brand1.png"></span><span> Pesan Ayam Kuy</span></a>
+				<a class="chat" href="chat.php"><span class="material-icons" style="padding-top:5px;">chat</span>  Chat</a>
 			</div>
 		</nav>
 		
