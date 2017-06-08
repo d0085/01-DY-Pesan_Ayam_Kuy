@@ -110,6 +110,16 @@
 	.text-persediaan p {
 		text-shadow:rgba(130, 130, 130, 0.46);
 	}
+
+	#jumlah{
+		color: white;
+		padding: 5px 7px 8px 10px;
+		//padding-left: 8px;
+		border: solid 1px #915620;
+		font-size: 15px;
+		border-radius: 5px;
+		background: #915620;	
+	}
 	
 </style>
 
@@ -125,89 +135,51 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		if (typeof document.onselectstart!="undefined") {
-			document.onselectstart=new Function ("return false");
-		}
-		else{
-			document.onmousedown=new Function ("return false");
-			document.onmouseup=new Function ("return true");
-		}
+	
+	//notif
+	function notif(){
+    	$.ajax({
+        	url: "notif.php",
+        	cache: false,
+        	success: function(hasil){
+            	$("#jumlah").html(hasil);
+        	}
+    	});
+	}
+
 	$(document).ready(function(){
-		$(".navbar-nav li a").click(function(){
-			var target=$(this).attr("href");
-			$('#form form').not(target).hide();
-			$(target).slideToggle('slow');
-			return false;
-		});
+    	notif();
 	});
+
 	</script>
 	<title>Homepage</title>
 </head>
+<?php
+	include 'koneksi.php';
+	session_start();
+
+	if(!isset($_SESSION['USERNAME'])){
+		header('location:welcomepage.php');	
+	}
+	$username = $_SESSION['USERNAME'];
+?>	
 <body>
-	<div style="height:100%;">
 	<nav class="navbar nav-bar" style="border-radius:0;">
 		<div class="container-fluid">
 			<ul class="nav navbar-nav">
 				<li><a href="#home">Home</a></li>
 				<li><a href="#about">About</a></li>
 				<li><a href="#contacs">Contacts</a></li>
+				<li><a href="chat_index.php">Chat</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#sign-up"><span class="glyphicon glyphicon-user"></span> Sign up</a></li>
-				<li><a href="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				<li><a href="permintaan_dari_pembeli.php"><span class="glyphicon glyphicon-bell notification-icon"><span id="jumlah">0</span></span></a></li>
+				<li><a href="#user"><span class="glyphicon glyphicon-user"></span> <?php echo $username ?></a> </li>
+				<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
 			</ul>
 		</div>
 	</nav>
-	<div id="form">
-		<form id="login" class="pull-right login-form" style="width:330px; float:right; margin-right:18px;display:none;">
-			<p class="text-center" style="font-size:23px; border-radius:4px">Login</p>
-			<div class="input-group" >
-				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-				<input style="height:35px;" id="email" type="text" class="form-control" name="email" placeholder="Email">
-			</div>
-			<div class="input-group psw-log-in" style="margin-top:15px;">
-				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				<input style="height:35px; width:240px;" id="password" type="password" class="form-control" name="password" placeholder="Password">
-				<button type="submit" class="btn-login"><i class="glyphicon glyphicon-log-in"></i></button>
-			</div>
-			<div class="checkbox remember-me" style="{color:white;margin-top:7px; margin-bottom:-2px;}">
-				<label><input type="checkbox">Remember me.</label>
-			</div>
-		</form>
-		<form id="sign-up"class="pull-right sign-up"style="display:none;">
-			<p class="text-center" style="font-size:23px; border-radius:4px">SIGN UP</p><br>
-			<div class="input-group" style="margin-top:-8px;">
-				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-				<input style="height:38px;" id="name" type="text" class="form-control" name="name" placeholder="Name">
-			</div>
-			<div class="input-group" style="margin-top:15px;">
-				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-				<input style="height:38px;" id="username" type="text" class="form-control" name="username" placeholder="Username">
-			</div>
-			<div class="input-group" style="margin-top:15px;" >
-				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-				<input style="height:38px;" id="email" type="text" class="form-control" name="email" placeholder="Email">
-			</div>
-			<div class="input-group" style="margin-top:15px;">
-				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				<input style="height:38px;" id="password" type="password" class="form-control" name="password" placeholder="Password">
-			</div>
-			<div class="input-group" style="margin-top:15px;">
-				<span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-				<input style="height:38px;" id="number" type="text" class="form-control" name="number" placeholder="Phone Number">
-			</div>
-			<div class="input-group" style="margin-top:15px;">
-				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-				<input style="height:38px;" id="tgl-lahir" type="date" class="form-control" name="Birthday">
-			</div>
-			<div class="input-group" style="margin-top:15px;">
-				<span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
-				<input style="height:38px;" id="alamat" type="text" class="form-control" name="Address" placeholder="Address">
-			</div>
-			
-			<div class="text-center"><button type="submit" class="btn btn-submit center-block" style="font-size:18px;">Submit</button></div>
-		</form>
-	</div>
+	
 	<div class="row" style="margin-top:70px;">
 		<div class="text-persediaan"><p>PERSEDIAAN AYAM HARI INI</p></div>
 		<div class="porto-item">

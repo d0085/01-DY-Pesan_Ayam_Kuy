@@ -13,7 +13,7 @@
 			$hasil=$result->fetch_assoc();
 			$_SESSION['USERNAME']=$username;
 			
-			header("location:user_home.php");
+			header("location:homepage_penjual.php"); //ganti link homepage penjual
 		}
 		else{
 				echo "<script>confirm('invalid username or password')

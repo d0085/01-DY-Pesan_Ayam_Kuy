@@ -3,7 +3,7 @@
 	session_start();
 
 	if(!isset($_SESSION['USERNAME'])){
-		header('location:Login.php');	
+		header('location:welcomepage.php');	
 	}
 	$username = $_SESSION['USERNAME'];
 ?>
@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="styleStock.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script type="text/javascript" src="jquery-2.1.4.min.js"></script> 
+	
 
 	<!-- script hitung harga total -->
 	<script type="text/javascript">
@@ -38,6 +39,7 @@
 				<li><a href="#home">Home</a></li>
 				<li><a href="#about">About</a></li>
 				<li><a href="#contacs">Contacts</a></li>
+				<li><a href="chat_index.php">Chat</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#user"><span class="glyphicon glyphicon-user"></span> <?php echo $username ?></a> </li>
@@ -101,7 +103,7 @@
 					$pemasok = mysqli_query($conn, $sql);
 					while($hasil = mysqli_fetch_assoc($pemasok)){
 				?>
-				<option value="<?php echo $hasil['username']; ?>"><?php echo $hasil['nama']; ?></option>
+				<option value="<?php echo $hasil['username']; ?>"><?php echo $hasil['nama']; ?></option>	
 				<?php
 					}
 				?>
