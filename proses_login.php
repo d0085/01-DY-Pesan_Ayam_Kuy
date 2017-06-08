@@ -31,12 +31,28 @@
 		if($result->num_rows>0){
 			$hasil=$result->fetch_assoc();
 			$_SESSION['USERNAME']=$username;
+<<<<<<< HEAD
 			
 			header("location:user_home.php");
+=======
+			$_SESSION['NAMA']= $hasil['nama'];
+			$_SESSION['PERAN']=$hasil['peran'];
+
+			
+			if($_SESSION['PERAN']==1){
+				header("location:homepage_pemasok.php"); //ganti link homepage pemasok
+			}
+			if($_SESSION["PERAN"]==2){
+				header("location:homepage_penjual.php"); //ganti link homepage penjual
+			}
+			if($_SESSION["PERAN"]==3){
+				header("location:homepage_pembeli.php"); //ganti link homepage pembeli
+			}
+>>>>>>> Ariq
 		}
 		else{
 				echo "<script>confirm('invalid username or password')
-				location.replace('login.php')</script>";
+				location.replace('welcomepage.php')</script>";
 		}
 	}
 >>>>>>> a055cdbbe5a9da65c8de8ae4aff82db7b58f21e0
