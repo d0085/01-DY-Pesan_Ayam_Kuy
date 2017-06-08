@@ -1,0 +1,128 @@
+<style>
+	body{
+		background-image:url('images/chicken1.jpg');
+		background-size:cover;
+		background-attachment:fixed;
+	}
+.mid{
+	width: 40%;
+	height: 70%;
+	margin: 0 auto;
+}
+
+.mid h1{
+	color: white;
+	font-family: vanfonting;
+	text-align: center;
+	font-size: 130px;
+}
+
+.tombol{
+	text-align: center;
+}
+
+.read a:link{
+	font-family: "ruler stencil";
+	background-color: white;
+    color: black;
+    text-decoration: none;
+    padding: 14px 60px;
+}
+
+.read a:hover{
+	border: 2px solid white;
+}
+
+.login a:link{
+	font-family: "ruler stencil";
+	background-color: black;
+    color: white;
+    text-decoration: none;
+    padding: 14px 85px;
+}
+
+.login a:hover{
+	border: 2px solid black;
+}
+
+ .mid h4{
+	color: white;
+	font-family: "ruler stencil";
+
+	}
+
+	
+	.btn-submit{
+		font-family: calibri;
+		color: white;
+		background-color:rgba(87, 87, 87, 1);
+		width: 200px;
+		padding:60px;
+		margin-top:15px;
+		letter-spacing: 3px;
+	}
+ 
+	.nav-bar{
+		background-color:rgba(9, 134, 127, 0.75);	
+	}
+	ul li{
+		text-align: center;
+	}
+	ul li a {
+		color: white;
+		letter-spacing: 3px;
+		font-family: "century gothic";
+		font-weight: bold;
+		font-size: 15px;
+	}
+	ul li a:hover{
+		color: rgba(9, 134, 127, 1);
+	}
+
+	
+</style>
+<html>
+	<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		if (typeof document.onselectstart!="undefined") {
+			document.onselectstart=new Function ("return false");
+		}
+		else{
+			document.onmousedown=new Function ("return false");
+			document.onmouseup=new Function ("return true");
+		}
+	</script>
+		<title> Welcome </title>	
+	</head>
+	<body>
+		<nav class="navbar nav-bar" style="border-radius:0;">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav text-center" style="text-center:center;">
+				<li><a href="#news">News</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#contacs">Contacts</a></li>
+				<li class="sign-up-bar"><a href="#sign-up">Sign Up</a></li>
+			</ul>
+		</div>
+	</nav>
+		<div class="mid">
+			<h1><b>Pesan Ayam Kuy</b></h1>
+			<br>
+			<div class="tombol">
+				<div class="login">
+					<a href="Homepage.html"><b>Login</b></a>
+				</div>
+				<h4>Belum terdaftar? <a href="Homepage.html" style="color: black; text-decoration: none;"><b>REGISTER</b></a> dulu.</h4>
+			</div>
+
+		</div>
+
+	</body>
+
+</html>

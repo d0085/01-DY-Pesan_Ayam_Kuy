@@ -1,0 +1,107 @@
+<style>
+	body{
+		background-image:url('images/chicken1.jpg');
+		background-size:cover;
+		background-attachment:fixed;
+	}
+	.login-form{
+		background-color:rgba(9, 134, 127, 0.40);
+		box-shadow:0px 0px 1px 1px rgba(0, 0, 0, 0.2);
+		padding:8px 8px;
+
+	}
+
+	}
+	.btn-login:hover{
+		background-color:rgba(140, 140, 140, 1);
+		color:rgba(77, 219, 255, 1);
+	}
+	.login-form p{
+		background-color:rgba(9, 134, 128, 1);
+		color:rgba(235, 235, 235, 1);
+		padding:3px 5px; 
+	}
+	
+	.btn-submit{
+		font-family: calibri;
+		color: white;
+		background-color:rgba(87, 87, 87, 1);
+		width: 200px;
+		padding:60px;
+		margin-top:15px;
+		letter-spacing: 3px;
+	}
+ 
+	.nav-bar{
+		background-color:rgba(9, 134, 127, 0.75);	
+	}
+	ul li{
+		text-align: center;
+	}
+	ul li a {
+		color: white;
+		letter-spacing: 3px;
+		font-family: "century gothic";
+		font-weight: bold;
+		font-size: 15px;
+	}
+	ul li a:hover{
+		color: rgba(9, 134, 127, 1);
+	}
+
+	
+</style>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		if (typeof document.onselectstart!="undefined") {
+			document.onselectstart=new Function ("return false");
+		}
+		else{
+			document.onmousedown=new Function ("return false");
+			document.onmouseup=new Function ("return true");
+		}
+	</script>
+	<title>Welcome Page</title>
+</head>
+<body>
+	<nav class="navbar nav-bar" style="border-radius:0;">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav text-center" style="text-center:center;">
+				<li><a href="#news">News</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#contacs">Contacts</a></li>
+				<li class="sign-up-bar"><a href="#sign-up">Sign Up</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="row" style=" margin:0;margin-top: -20px;" >
+		<form class="pull-right login-form" style="margin-top:150px; width:330px; margin-right:500px;">
+			<p class="text-center" style="font-size:23px; border-radius:4px">Pesanan & Pembayaran</p>
+			<div class="input-group" >
+				<span class="input-group-addon"><i class="glyphicon glyphicon-shopping-cart"></i></span>
+				<input  type="number" style="height:35px;" id="Chicken"  class="form-control" name="Chicken" min="0" 
+				 max="10" onblur="getHarga()" placeholder="Kg">
+			</div><br>
+			<div class="input-group" >
+				<span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
+				<input  type="text" style="height:35px; margin-right" id="harga"  class="form-control" readonly name="harga">
+			</div>
+			<div class="text-center"><button type="submit" class="btn btn-submit center-block" style="font-size:18px;">Submit</button></div>
+		</form>
+	</div>
+	<script>
+		function getHarga(){
+			var jumlah=document.getElementById('Chicken').value;
+			document.getElementById('harga').value="Rp. "+jumlah*20000+",-";
+		}
+	</script>
+</body>
+</html>
+
