@@ -19,7 +19,7 @@ ul li a {
 	font-weight: bold;
 	font-size: 15px;
 }
-ul li a:hover{
+ul li a:hover not(.user){
 	color: rgba(9, 134, 127, 1);
 }
 
@@ -63,7 +63,7 @@ form p {
 		margin: 25px;
 		margin-bottom: 0px;
 		font-size: 18px;
-		background-color:rgba(2, 178, 222, 1);
+		background-color: #098680;
 		color:white;
 		border:0;
 		border-radius:4px;
@@ -77,11 +77,27 @@ form p {
 <<<<<<< HEAD
 =======
 
-.sebagai{
-	color : white;
-	margin : -17px auto auto -26px;;
-	font-size: 14px;
-	list-style: none;
+#jumlah_minta{
+		color: white;
+		padding: 5px 7px 8px 10px;
+		//padding-left: 8px;
+		border: solid 1px #915620;
+		font-size: 15px;
+		border-radius: 50%;
+		background: #915620;	
+	}
+	.user:hover{
+		color: orange;
+		background-color:rgba(0,0,0,0);
+	}
 
+<<<<<<< HEAD
 }
 >>>>>>> a055cdbbe5a9da65c8de8ae4aff82db7b58f21e0
+=======
+	nav div a.active{
+		background-color:white !important;
+		color:rgba(9, 134, 127, 1);
+		text-decoration:none;
+	}
+>>>>>>> Rahmat

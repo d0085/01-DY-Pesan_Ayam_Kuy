@@ -3,19 +3,44 @@
 	session_start();
 
 	if(!isset($_SESSION['USERNAME'])){
+<<<<<<< HEAD
 		header('location:Login Seller.php');	
 	}
 	$username = $_SESSION['USERNAME'];
 	
+=======
+		header('location:welcomepage.php');	
+	}
+	$username = $_SESSION['USERNAME'];
+>>>>>>> Rahmat
 ?>
 <html>
 <head>
 	<title>Tambah Stock</title>
 	<link rel="stylesheet" href="styleStock.css">
+<<<<<<< HEAD
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script type="text/javascript" src="jquery-2.1.4.min.js"></script> 
 	
 	<!--  -->
+=======
+	<style>
+		#jumlah_minta{
+		color: white;
+		padding: 5px 7px 8px 10px;
+		border: solid 1px #915620;
+		font-size: 15px;
+		border-radius: 50%;
+		background: #915620;	
+	}
+	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src="jquery-2.1.4.min.js"></script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+
+	<!-- script hitung harga total -->
+>>>>>>> Rahmat
 	<script type="text/javascript">
 		function start(){
 			interval = setInterval("hitung()",1);
@@ -29,6 +54,7 @@
 		function stop(){
 			clearInterval(interval);
 		}
+<<<<<<< HEAD
 	</script>
 
 </head>
@@ -43,6 +69,42 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#user"><span class="glyphicon glyphicon-user"></span> <?php echo $username ?></a> </li>
+=======
+
+		//notif
+	function notif(){
+    	$.ajax({
+        	url: "notif.php",
+        	cache: false,
+        	success: function(hasil){
+            	$("#jumlah_minta").html(hasil);
+        	}
+    	});
+	}
+
+	$(document).ready(function(){
+    	notif();
+	});
+
+	</script>
+</head>
+
+<body>	
+	<div style="background-color:rgba(34, 32, 80, 0.07);">
+		<nav class="navbar nav-bar" style="border-radius:0;">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav">
+				<li><a href="homepage_penjual.php" >Home</a></li>
+				<li><a href="testimoni.php">About</a></li>
+				<li><a href="contacts.php">Contacts</a></li>
+				<li><a href="stockPenjual.php" class="active">Stock</a></li>
+				<li><a class="pr" href="tabel_pemesanan.php"><span></span> Tabel Pemesan</a></span>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="tabel_pemesanan.php"><span class="glyphicon glyphicon-bell notification-icon"></span>	<span id="jumlah_minta">0</span></a></li>
+				<li><a href='chat_index.php'><img src='images/glyphicons-245-conversation.png'> Chat</a></li>
+				<li><a href="#user"><span class="glyphicon glyphicon-user"></span> <?php echo ucfirst($_SESSION['NAMA']); ?></a> </li>
+>>>>>>> Rahmat
 			<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
 			</ul>
 		</div>
@@ -90,7 +152,11 @@
 		<div class="input">
   			<div class="input-group" >
 				<span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
+<<<<<<< HEAD
 				<input style="height:35px;" name='total' type="text" class="form-control" placeholder="Total Harga"  readonly>
+=======
+				<input style="height:35px;" name='total'  id='total' type="text" class="form-control" placeholder="Total Harga"  readonly>
+>>>>>>> Rahmat
 			</div>
 		</div>
 
@@ -99,11 +165,19 @@
 		<select name="pilihPemasok" id="pilihPemasok" class="form-control" required>
 				<option style="height:35px;" selected="selected" readonly> Pilih Pemasok</option>
 				<?php
+<<<<<<< HEAD
 					$sql="SELECT * FROM akun WHERE peran='1' order by username asc";
 					$pemasok = mysqli_query($conn, $sql);
 					while($hasil = mysqli_fetch_assoc($pemasok)){
 				?>
 				<option value="<?php echo $hasil['username']; ?>"><?php echo $hasil['username']; ?></option>
+=======
+					$sql="SELECT * FROM akun WHERE peran='1' order by nama asc";
+					$pemasok = mysqli_query($conn, $sql);
+					while($hasil = mysqli_fetch_assoc($pemasok)){
+				?>
+				<option value="<?php echo $hasil['username']; ?>"><?php echo $hasil['nama']; ?></option>	
+>>>>>>> Rahmat
 				<?php
 					}
 				?>

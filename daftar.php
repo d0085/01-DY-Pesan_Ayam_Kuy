@@ -1,35 +1,41 @@
-<html>
-	<head>
-	</head>
+<?php
+	session_start();	
+?>
+<link href="styletestimoni.css" rel="stylesheet">
+<nav class="navbar nav-bar" style="border-radius:0;">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav">
+				<li><a href="#home">Home</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#contacs">Contacts</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#sign-up"><span class="glyphicon glyphicon-user"></span> Sign up</a></li>
+				<li><a href="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			</ul>
+		</div>
+	</nav>
+	
+<?php 
 
-	<body>
-	<!-- <center> -->
-		<form action="proses_daftar.php" method="post">
-			<fieldset>
-				<legend>Register</legend><br>
-				Username:<br>
-				<input type="text" placeholder="Username" name="username" required /><br>
-				Password:<br>
-				<input type="password" placeholder="Password" name="password" required /><br>
-				Identity:<br>
-				<input type="text" placeholder="Identity Number" name="id" required/><br>
-				Name:<br>
-				<input type="text" placeholder="Name" name="name" required/><br>
-				E-mail:<br>
-				<input type="email" placeholder="Email" name="email" required/><br>
-				Gender:<br>
-				<select name="jk" required>
-					<option value = "" selected ="selected" disabled = ""> Choose </option>
-					<option value = "M">Male</option>
-					<option value = "F">Female</option>
-				</select><br>
-				Event_Id:<br>
-				<input type="text" placeholder="Event_Id" name="event" required /><br>
-				Contact Person:<br>
-				<input type="text" placeholder="Contact Person" name="cp" required /><br>
-				<button type="submit">Submit</button><a href="login.php">Sudah punya akun ?</a>
-			</fieldset>
-		</form>
-	<!-- </center> -->
-	</body>
-</html>
+
+require_once("koneksi.php");
+$nama=$_SESSION['USERNAME'];
+$komen = $_POST['komen'];
+
+
+$simpan = "INSERT INTO `testimoni` VALUES ('$nama','$komen')";
+$result=$conn->query($simpan);
+
+if($simpan) {
+	header ("location:testimoni.php");
+//echo "
+//<h2> Terima kasih atas masukkan dari anda, saran dari anda telah kami terima </h2>
+//<meta http-equiv='refresh' content='2; url = testimoni.html'/> ";
+}
+else {
+echo "Gagal menulis komentar";
+}
+
+
+?>
