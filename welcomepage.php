@@ -98,6 +98,11 @@
 		z-index: 100;
 		width:100%;
 	}
+	nav div a.active{
+		background-color:white !important;
+		color:rgba(9, 134, 127, 1);
+		text-decoration:none;
+	}
 	
 </style>
 <html>
@@ -105,36 +110,19 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="bootstrap/js/jquery.min.js"></script>
 
 	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		if (typeof document.onselectstart!="undefined") {
-			document.onselectstart=new Function ("return false");
-		}
-		else{
-			document.onmousedown=new Function ("return false");
-			document.onmouseup=new Function ("return true");
-		}
-	$(document).ready(function(){
-		$(".navbar-nav li a").click(function(){
-			var target=$(this).attr("href");
-			$("#form form").not(target).hide();
-			$(target).slideToggle('slow');
-			return false;
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".navbar-right li a ").click(function(){
+				var target=$(this).attr("href");
+				$('#form form').not(target).hide();
+				$(target).slideToggle('slow');
+				return false;
+			});
 		});
-		$('.navbar-nav').blur(function(){
-			var target = $(this).attr('href');
-			$('#form form').find('.slideDown').slideUp();
-			});
-			return false;
-		$('.navbar-nav').blur(function(){
-			var target = $(this).attr('href');
-			$('#form form').slideUp();
-			});
-			return false;
-	});
 	</script>
 	<title>Welcome Page</title>
 </head>
@@ -143,9 +131,9 @@
 		<nav class="navbar nav-bar" style="border-radius:0;">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav">
-					<li><a href="homepage.php">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contacs">Contacts</a></li>	
+					<li><a href="homepage.php" class="active">Home</a></li>
+					<li><a href="testimoni.php">About</a></li>
+					<li><a href="contacts.php">Contacts</a></li>	
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#sign-up"><span class="glyphicon glyphicon-user"></span> Sign up</a></li>
@@ -154,7 +142,7 @@
 			</div>
 		</nav>
 		<div id="form">
-			<form id="login" class="pull-right login-form" style="width:330px; float:right; margin-right:18px;display:none;">
+			<form id="login" action="proses_login.php" method="POST" class="pull-right login-form" style="width:330px; float:right; margin-right:18px;display:none;">
 				<p class="text-center" style="font-size:23px; border-radius:4px">Login</p>
 				<div class="input-group" >
 					<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
@@ -169,11 +157,11 @@
 					<label><input type="checkbox">Remember me.</label>
 				</div>
 			</form>
-			<form id="sign-up"class="pull-right sign-up has-feedback"style="display:none;">
+			<form id="sign-up" method="post" action="proses_daftar.php" class="pull-right sign-up has-feedback" style="display:none;">
 				<p class="text-center" style="font-size:23px; border-radius:4px">SIGN UP</p><br>
 				<div class="input-group" style="margin-top:-8px;">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-					<input style="height:38px;" id="name" type="text" class="form-control" name="name" placeholder="Name">
+					<input style="height:38px;" id="name" type="text" class="form-control" name="nama" placeholder="Name">
 				</div>
 				<div class="input-group" style="margin-top:15px;">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -196,7 +184,7 @@
 					<input style="height:38px;" id="tgl-lahir" type="date" class="form-control" name="birthday">
 				</div>
 				<div class="form-group" style="margin-top:15px;">
-					<select class="form-control"style="height:38px; padding: 0 12px 0 12px;" id="sel1">
+					<select class="form-control" style="height:38px; padding: 0 12px 0 12px;" name="peran" id="sel1">
 						<option>Sign up as. . .</option>
 						<option value="1">Pemasok</option>
 						<option value="2">Penjual</option>
@@ -206,6 +194,16 @@
 				<div class="text-center"><button type="submit" class="btn btn-submit center-block" style="font-size:18px;">Submit</button></div>
 			</form>
 		</div>
+
+		<?php 
+			if(isset($_GET["success"])){
+				echo "<script>alert('Berhasil mendaftar sebagai ".$_GET['user']."')</script>";
+				echo "<script>alert('Silahkan login...')</script>";
+			}
+			if(isset($_GET["failed"])){
+				echo "<script>alert('Sign Up Failed !!')</script>";
+			}
+		?>
 			
 		<div class=" container text-center">
 			<div class="welcome-text" style="display:inline-block;margin-top: 10%; text-align:center;">
