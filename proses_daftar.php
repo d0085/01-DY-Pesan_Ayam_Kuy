@@ -1,26 +1,34 @@
 <?php
-	
-	require_once "koneksi.php";
+require_once "koneksi.php";
+	//hubungan dengan main.php
+	$nama=$_POST['nama'];
+	$username=$_POST['username'];
+	$email=$_POST['email'];
+	$password=$_POST['password'];
+	$no_hp=$_POST['number'];
+	$tgl_lahir=$_POST['birthday'];
+	$peran=$_POST['peran'];
 
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-	$id = $_POST['id'];
-	$name=$_POST['name'];
-	$email = $_POST['email'];
-	$jk = $_POST['jk'];
-	$event = $_POST['event'];
-	$cp = $_POST['cp'];
-	
-	$sql = "INSERT INTO uts_praktikum VALUES('".$username."','".$password."','".$id."','".$name."','".$email."','".$jk."','".$event."','".$cp."')";
-
-	$result = $conn->query($sql);
-
-	if($result){
-		include "terdaftar.php";
+	$sql="select username from akun where username='".$username."'"; //biar tidak sama
+	$result=$conn->query($sql);
+	if($result->num_rows>0){
+		header("location: Login.php?userzz=1"); //balik ke utama
 	}
-
 	else{
-		echo "<script>confirm('username already taken')
-				location.replace('daftar.php')</script>";
+		if($kpass!=$pass){
+			header("location: index.php?passzz=1"); //pas harus dua dua
+		}
+		else{
+			$sql="insert into akun(username,nama,email,password,no_hp,tgl_lahir,peran) values('".$username."','".$nama."','".$email."','".$password."'
+			,'".$no_hp."','".$tgl_lahir."','".$peran."')";
+			$result=$conn->query($sql);
+
+			if($result){
+				header("location: welcomepage.php?success=1&&user=".$username);
+			}
+			else{
+				header("location: welcomepage.php?failed=1");
+			}
+		}
 	}
 ?>
